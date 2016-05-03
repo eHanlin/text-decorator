@@ -38,7 +38,7 @@ console.log(result.text);
 
 ## API
 
-#### textDecorator.decorator(text, keywords, replace)
+#### textDecorator.decorate(text, keywords, replace)
 
 To match keywords then replace.
 
