@@ -1,6 +1,8 @@
 text-decorator
 =======================================================
 
+[![Build Status](https://travis-ci.org/eHanlin/text-decorator.svg?branch=master)](https://travis-ci.org/eHanlin/text-decorator)
+
 The project is able to help to modify texts.
 
 ## Install
