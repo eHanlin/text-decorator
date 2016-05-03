@@ -27,7 +27,7 @@ console.log(result.text);
 console.log(result.matches);
 ```
 
-Follow this if you need ignore some texts.
+Follow this if you need ignore some words.
 
 ```js
 var result = textDecorator.decorate('這是一個裝飾者，不是飾者。', ['飾者'], decorateBold, {ignoreTexts:['裝飾者']});
@@ -35,6 +35,19 @@ var result = textDecorator.decorate('這是一個裝飾者，不是飾者。', [
 //print '這是一個裝飾者，不是**飾者**。'
 console.log(result.text);
 ```
+
+## API
+
+#### textDecorator.decorator(text, keywords, replace)
+
+To match keywords then replace.
+
+|name               |type     |required|description                                            |
+|text               |string   |    *   |The text will be replaced.                             |
+|keywords           |string[] |    *   |The keywords will be matched.                          |
+|replace            |fn       |    *   |To replace text content by matched.                    |
+|opts               |object   |        |This is optional value.                                |
+|opts.ignoreTexts   |string[] |        |To ignore some words for mapping                       |
 
 ## Test
 
