@@ -43,6 +43,7 @@ console.log(result.text);
 To match keywords then replace.
 
 |name               |type     |required|description                                            |
+|-------------------|---------|----------------------------------------------------------------|
 |text               |string   |    *   |The text will be replaced.                             |
 |keywords           |string[] |    *   |The keywords will be matched.                          |
 |replace            |fn       |    *   |To replace text content by matched.                    |
