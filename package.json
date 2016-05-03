@@ -1,0 +1,24 @@
+{
+  "name": "text-decorator",
+  "main": "src/index.js",
+  "version":"0.0.1",
+  "description":"Be able to help to modify texts",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha"
+  },
+  "keywords": [
+    "decorator",
+    "html",
+    "text",
+    "replace",
+    "keyword"
+  ],
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "escape-string-regexp": "^1.0.5"
+  },
+  "author": "Sparrow.jang",
+  "license": "MIT"
+}
