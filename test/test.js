@@ -44,11 +44,20 @@ describe('textDecorator', function(){
       assert.equal(true, result.matches.length === 1);
     });
 
-    it('should return true when an word of english is beside tag', function() {
+    it('should return true when a word of English is beside tag', function() {
       var result = textDecorator.decorate('<p>This is a dog</p>', ['this', 'dog'], decorateBold);
       assert.equal(true, result.text === '<p>**This** is a **dog**</p>');
     });
 
+    it('should return true when a word of English contains other words', function() {
+      var result = textDecorator.decorate('<p>The telephone is ______.  They are on the table in the living room.</p>', ['the', 'table', 'telephone', 'living room', 'on'], decorateBold);
+      assert.equal(true, result.text === '<p>**The** **telephone** is ______.  They are **on** **the** **table** in **the** **living room**.</p>');
+    });
+
+    it('should return true when a word of Chinese contains other words', function() {
+      var result = textDecorator.decorate('這是一個裝飾者。', ['裝飾者', '裝飾'], decorateBold);
+      assert.equal(true, result.text === '這是一個**裝飾者**。');
+    });
   });
 });
 
