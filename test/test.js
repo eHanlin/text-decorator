@@ -44,6 +44,11 @@ describe('textDecorator', function(){
       assert.equal(true, result.matches.length === 1);
     });
 
+    it('should return true when an word of english is beside tag', function() {
+      var result = textDecorator.decorate('<p>This is a dog</p>', ['this', 'dog'], decorateBold);
+      assert.equal(true, result.text === '<p>**This** is a **dog**</p>');
+    });
+
   });
 });
 
