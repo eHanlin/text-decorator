@@ -47,13 +47,15 @@ util._extend(HtmlDecorator.prototype, {
     var _this = this;
     var text = _this._buildSpaceSymbol( html );
     var compareTexts = _this._splitIgnoringText( text );
-    var existKeywordText = '';
+    var existKeywordTexts = '';
     var matches = [];
 
     keywords.forEach(function( keyword ){
 
-      if ( keyword && text != keyword && existKeywordText.indexOf(keyword) == -1 ) {
-        var separated = _this._isEnglish( keyword ) ? ' ' : '';
+      var separated = _this._isEnglish( keyword ) ? ' ' : '';
+      var matchWholeKeyword = `${separated}${keyword}${separated}`;
+
+      if ( keyword && text != keyword && existKeywordTexts.indexOf(matchWholeKeyword) == -1 ) {
         var rWord = new RegExp(`${separated}${escapeStringRegexp(keyword.replace(/\./g, '\\ . '))}${separated}`, 'ig');
 
         compareTexts = compareTexts.map(function(compareText, index){
@@ -65,10 +67,11 @@ util._extend(HtmlDecorator.prototype, {
                 return `${separated}${replace(matchText.trim())}${separated}`;
               });
               matches.push(keyword);
-              existKeywordText += keyword;
+              existKeywordTexts += matchWholeKeyword;
             }
 
           }
+
           return compareText;
         });
       }
