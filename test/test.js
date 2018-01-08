@@ -58,6 +58,12 @@ describe('textDecorator', function(){
       var result = textDecorator.decorate('這是一個裝飾者。', ['裝飾者', '裝飾'], decorateBold);
       assert.equal(true, result.text === '這是一個**裝飾者**。');
     });
+
+	it('should return true when words have space of full width', function() {
+      var result = textDecorator.decorate('<p>table　</p>', ['table'], decorateBold);
+      assert.equal(true, result.text === '<p>**table**　</p>');
+	});
+
   });
 });
 
