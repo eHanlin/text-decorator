@@ -11,7 +11,7 @@ function HtmlDecorator( opts ) {
   util._extend(_opts, opts);
 
   //for english condition
-  this._symbols = ['(', '[?!,.<>]' , ')'];
+  this._symbols = ['(', '[?!,.<>　]' , ')'];
   this._opts = _opts;
 }
 
