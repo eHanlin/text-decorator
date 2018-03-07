@@ -64,6 +64,11 @@ describe('textDecorator', function(){
       assert.equal(true, result.text === '<p>**table**　</p>');
 	});
 
+	it('should return true when is English phrase', function() {
+      var result = textDecorator.decorate('<p>I take a walk every day</p>', ['take a walk', 'take', 'walk'], decorateBold);
+      assert.equal(true, result.text === '<p>I **take a walk** every day</p>');
+	});
+
   });
 });
 
