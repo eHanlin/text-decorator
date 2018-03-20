@@ -2,3 +2,12 @@ language: node_js
 node_js:
   - "stable"
 script: npm run test
+deploy:
+  provider: npm
+  email: sparrow.jang@gmail.com
+  skip_cleanup: true
+  on:
+    tags: true
+  api_key:
+    secure: SN1QpZm9gLI2v3aYeEsJhgc2PjT5k+vICvlVBTXCneMeZ+EeB/0L2XgIx9Wt+PzLgdnfeCDrW9h8bouxD+E9ht2E64q11Yu7HctsK0uvt7D58Zq03Lwd4eAi4SgUqd+zFCrjmsR/uy2RNALHPc1hKqQU+HPfoNcHM0uglgi+rF390eUbQYKFhenMRbGiA1PmV+Wa+VhiTB/4HG8NDXpFUCFEH8xD8ZDWNlYe22Gp7k+IhNSNB3VbDRlbXxAszdSruFldaBcRYtBSx6FKnMweQ/YUx6cH9i1PaD9tOf0NcL7awAaNNRdDIPIATm/Zexwh1qCVJ35JFlQqzQL0WIjfs1xX/Yk57zJjvJZCqAkMIcRlNOG+4kvMENMcdI7NyTKBDTjLNpeF/2k8oM94017sW4PafHhDTeW3JluaSC3KzEoFszmQ06ch0VOlij4oRy2mvJ36M0W/JP0OGyc3MM/obEW516LQcoG/a/TYyxaHH0KVrOFfe5vQqND/HMr46yCgubw4K4RVbT+ynEtXV6dTxpvGIJdJhib+pSSGXNd3A9mWuk9ggcje8qcA+B7bzHSvJdjOUk0jAiPS11LPv9XnVS3C2lnZfSBAoFioP3vqAWLhnbx3lRER6izGvBKVwYSB5BnH3oH2EvmVZbawYhMNnR47G8YDNMeEGpL31dBjjJE=
+
