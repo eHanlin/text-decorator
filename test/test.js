@@ -64,10 +64,15 @@ describe('textDecorator', function(){
       assert.equal(true, result.text === '<p>**table**　</p>');
 	});
 
-	it('should return true when is English phrase', function() {
+    it('should return true when is English phrase', function() {
       var result = textDecorator.decorate('<p>I take a walk every day</p>', ['take a walk', 'take', 'walk'], decorateBold);
       assert.equal(true, result.text === '<p>I **take a walk** every day</p>');
-	});
+    });
+
+    it('should return true when contains dot in English word', function() {
+      var result = textDecorator.decorate('<p>I am Dr.J</p>', ['Dr.'], decorateBold);
+      assert.equal(true, result.text === '<p>I am **Dr.**J</p>');
+    });
 
   });
 });

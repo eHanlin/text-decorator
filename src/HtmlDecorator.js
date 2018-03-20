@@ -56,7 +56,7 @@ util._extend(HtmlDecorator.prototype, {
       var matchWholeKeyword = `${separated}${keyword}${separated}`;
 
       if ( keyword && text != keyword && existKeywordTexts.indexOf(matchWholeKeyword) == -1 ) {
-        var rWord = new RegExp(`${separated}${escapeStringRegexp(keyword.replace(/\./g, '\\ . '))}${separated}`, 'ig');
+        var rWord = new RegExp(`${separated}${escapeStringRegexp(keyword.replace(/\./g, ' \. '))}${separated}`, 'ig');
 
         compareTexts = compareTexts.map(function(compareText, index){
           if (index % 2 === 0 && compareText) {
@@ -64,7 +64,9 @@ util._extend(HtmlDecorator.prototype, {
 
             if (start > -1) {
               compareText = compareText.replace(rWord, function(matchText, startIndex, completeText){
-                return `${separated}${replace(matchText.trim())}${separated}`;
+                var rRemoveSpaceBetweenDotAndEN = /([a-z]+) +(\.)/ig;
+                var result = matchText.trim().replace(rRemoveSpaceBetweenDotAndEN, '$1$2');
+                return `${separated}${replace(result)}${separated}`;
               });
               matches.push(keyword);
               existKeywordTexts += matchWholeKeyword;
