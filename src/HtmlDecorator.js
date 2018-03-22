@@ -64,7 +64,7 @@ util._extend(HtmlDecorator.prototype, {
 
             if (start > -1) {
               compareText = compareText.replace(rWord, function(matchText, startIndex, completeText){
-                var rRemoveSpaceBetweenDotAndEN = /([a-z]+) +(\.)/ig;
+                var rRemoveSpaceBetweenDotAndEN = /([a-z]+) +(\.) ?/ig;
                 var result = matchText.trim().replace(rRemoveSpaceBetweenDotAndEN, '$1$2');
                 return `${separated}${replace(result)}${separated}`;
               });

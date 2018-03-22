@@ -70,8 +70,8 @@ describe('textDecorator', function(){
     });
 
     it('should return true when contains dot in English word', function() {
-      var result = textDecorator.decorate('<p>I am Dr.J</p>', ['Dr.'], decorateBold);
-      assert.equal(true, result.text === '<p>I am **Dr.**J</p>');
+      var result = textDecorator.decorate('<p>I am Dr.J. Working time will be from 8:00a.m. to 17:00p.m.</p>', ['Dr.', 'a.m.', 'p.m.'], decorateBold);
+      assert.equal(true, result.text === '<p>I am **Dr.**J. Working time will be from 8:00**a.m.** to 17:00**p.m.**</p>');
     });
 
   });
