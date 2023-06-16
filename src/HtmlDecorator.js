@@ -66,7 +66,7 @@ util._extend(HtmlDecorator.prototype, {
               compareText = compareText.replace(rWord, function(matchText, startIndex, completeText){
                 var rRemoveSpaceBetweenDotAndEN = /([a-z]+) +(\.) ?/ig;
                 var result = matchText.trim().replace(rRemoveSpaceBetweenDotAndEN, '$1$2');
-                return `${separated}${replace(result)}${separated}`;
+                return `${separated}${replace(result,{hit:keyword})}${separated}`;
               });
               matches.push(keyword);
               existKeywordTexts += matchWholeKeyword;

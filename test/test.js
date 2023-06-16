@@ -74,6 +74,16 @@ describe('textDecorator', function(){
       assert.equal(true, result.text === '<p>I am **Dr.**J. Working time will be from 8:00**a.m.** to 17:00**p.m.**</p>');
     });
 
+    it('should return true when the hit word is the candidate case in English word', function() {
+      const candidates = ['good', 'job']
+      var result = textDecorator.decorate('<p>Good Job!</p>', candidates, (...params)=>{
+        let [text, opts] = params;
+        assert.equal(true, candidates.indexOf(opts.hit) > -1);
+        return decorateBold(...params);
+      });
+      assert.equal(true, result.text === '<p>**Good** **Job**!</p>');
+    });
+
   });
 });
 
