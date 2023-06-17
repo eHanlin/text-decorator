@@ -1,7 +1,7 @@
 {
   "name": "text-decorator",
   "main": "src/index.js",
-  "version":"0.1.0",
+  "version":"0.1.1",
   "description":"Be able to help to modify texts",
   "scripts": {
     "test": "node_modules/mocha/bin/mocha"

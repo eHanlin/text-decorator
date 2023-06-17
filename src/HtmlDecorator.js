@@ -43,6 +43,10 @@ util._extend(HtmlDecorator.prototype, {
     return text.split(splitRegExp);
   },
 
+  _escapedTextAsRegExpText(text) {
+    return escapedText = text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+  },
+
   _matchAndReplace:function(html, keywords, replace) {
     var _this = this;
     var text = _this._buildSpaceSymbol( html );
@@ -55,7 +59,7 @@ util._extend(HtmlDecorator.prototype, {
       var separated = _this._isEnglish( keyword ) ? ' ' : '';
       var matchWholeKeyword = `${separated}${keyword}${separated}`;
 
-      if ( keyword && text != keyword && existKeywordTexts.indexOf(matchWholeKeyword) == -1 ) {
+      if ( keyword && text != keyword && !(new RegExp(_this._escapedTextAsRegExpText(matchWholeKeyword), 'i').test(existKeywordTexts)) ) {
         var rWord = new RegExp(`${separated}${escapeStringRegexp(keyword.replace(/\./g, ' \. '))}${separated}`, 'ig');
 
         compareTexts = compareTexts.map(function(compareText, index){

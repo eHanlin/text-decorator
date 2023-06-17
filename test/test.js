@@ -84,6 +84,11 @@ describe('textDecorator', function(){
       assert.equal(true, result.text === '<p>**Good** **Job**!</p>');
     });
 
+    it('should replace only one when the candidates are duplicate.', function() {
+      var result = textDecorator.decorate('<p>How many</p>', ['How many', 'how many'], decorateBold);
+      assert.equal(true, result.text === '<p>**How many**</p>');
+    });
+
   });
 });
 
